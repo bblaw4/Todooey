@@ -15,19 +15,28 @@ function Form({ addTodo }) {
   };
 
   return (
-    <form onSubmit={submitForm}>
-      <div>
+    <form onSubmit={submitForm} className="mb-2">
+      <div className="form-group">
         <input
+          className="form-control"
           type="text"
           placeholder="Enter a todo"
           value={todo}
           onChange={e => setTodo(e.target.value)}
         />
       </div>
-      <button type="submit">Add</button>
-      <button type="submit" onClick={() => clearForm()}>
-        Clear
-      </button>
+      <div className="btn-group" role="group">
+        <button type="submit" className="btn btn-primary">
+          Add
+        </button>
+        <button
+          type="submit"
+          className="btn btn-warning"
+          onClick={() => clearForm()}
+        >
+          Clear
+        </button>
+      </div>
     </form>
   );
 }

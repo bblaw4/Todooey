@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles.css";
 
 //components
 import Header from "./components/Header";
@@ -21,14 +20,18 @@ export default function App() {
     const todosCopy = todos.filter(t => t !== i);
     setTodos(todosCopy);
   };
-
+  //
+  const renderTodos = todos.map((todo, i) => (
+    <Todo key={i} name={todo} remove={removeTodo} />
+  ));
   return (
     <div className="App">
       <Header title="Todooey" />
-      <Form addTodo={addTodo} />
-      {todos.map((todo, i) => (
-        <Todo key={i} name={todo} remove={removeTodo} />
-      ))}
+      <div className="container">
+        {" "}
+        <Form addTodo={addTodo} />
+        {renderTodos}
+      </div>
     </div>
   );
 }

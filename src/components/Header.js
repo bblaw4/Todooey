@@ -1,5 +1,11 @@
 import React from "react";
 
-const Header = ({ title }) => <h1>Welcome to {title}</h1>;
+const Header = ({ title }) => (
+  <nav className="navbar navbar-dark bg-dark mb-2">
+    <a className="navbar-brand" href="#!">
+      Welcome to {title}
+    </a>
+  </nav>
+);
 
 export default Header;
